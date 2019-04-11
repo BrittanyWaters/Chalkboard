@@ -39,8 +39,17 @@ class ViewController: UIViewController {
 //////////////////////////// ACTIONS ////////////////////////////
     
     @IBAction func writePressed(_ sender: Any) {
-    chalkTextField.append(chalkboardTextField.text ?? "blah")
-    //    chalkboardText.reloadData()
+        var myNewString:String = ""
+        if chalkboardTextField.text != "" {
+            for randomthing in 1...Int(sliderOutlet.value) {
+                chalkTextField.append(chalkboardTextField.text ?? "blah")
+                myNewString += chalkTextField[randomthing] + "\n"
+                
+            }
+        
+           chalkboardText.text = myNewString
+        
+        }
     }
     
     @IBAction func sliderMoved(_ sender: Any) {
